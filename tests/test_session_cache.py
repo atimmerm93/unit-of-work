@@ -74,7 +74,9 @@ class TestSessionCacheAsync(unittest.IsolatedAsyncioTestCase):
     async def asyncSetUp(self) -> None:
         self.session_cache = SessionCache()
 
-    async def test_task_specific_updates_do_not_leak_to_siblings_or_parent(self) -> None:
+    async def test_task_specific_updates_do_not_leak_to_siblings_or_parent(
+        self,
+    ) -> None:
         task_session = Mock(spec=Session)
 
         async def override_session_in_task() -> Session | None:

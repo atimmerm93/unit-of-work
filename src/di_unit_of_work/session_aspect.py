@@ -3,7 +3,9 @@ from functools import wraps
 from typing import ParamSpec, TypeVar
 
 from di_unit_of_work.session_cache import SessionCache
-from di_unit_of_work.session_factory.abstract_session_factory import AbstractSessionFactory
+from di_unit_of_work.session_factory.abstract_session_factory import (
+    AbstractSessionFactory,
+)
 
 P = ParamSpec("P")
 R = TypeVar("R")
@@ -40,4 +42,3 @@ class SessionAspect:
                     self._session_cache.reset_to_token(token=token)
 
         return wrapped
-

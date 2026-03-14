@@ -4,7 +4,7 @@ version = "0.0.2"
 description = "Add your description here"
 requires-python = ">=3.12"
 dependencies = [
-    "python-di-application>=0.2.0",
+    "python-di-application>=0.2.2",
     "sqlalchemy>=2.0.48",
 ]
 
@@ -19,6 +19,7 @@ build-backend = "hatchling.build"
 dev = [
     "mypy>=1.19.1",
     "pre-commit>=4.5.1",
+    "ruff>=0.15.6",
     "ty>=0.0.23",
 ]
 

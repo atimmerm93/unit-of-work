@@ -12,6 +12,3 @@ R = TypeVar("R")
 def transactional(func: Callable[P, R]) -> Callable[P, R]:
     """DI post-init decorator that applies SessionAspect.transactions."""
     return DIContainer.post_init_wrap(wrap_func=SessionAspect.transactional)(func)
-
-
-

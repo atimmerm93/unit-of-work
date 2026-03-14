@@ -18,6 +18,7 @@ repos:
         entry: uv run mypy
         language: system
         types_or: [python, pyi]
+        exclude: ^tests/
         require_serial: true
       - id: ty
         name: ty

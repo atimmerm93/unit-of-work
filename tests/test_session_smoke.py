@@ -7,7 +7,10 @@ from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
 from di_unit_of_work.session_aspect import SessionAspect
 from di_unit_of_work.session_cache import SessionCache
-from di_unit_of_work.session_factory.sqlite_session_factory import SQLiteSessionFactory, SqlLiteConfig
+from di_unit_of_work.session_factory.sqlite_session_factory import (
+    SQLiteSessionFactory,
+    SqlLiteConfig,
+)
 from di_unit_of_work.session_provider import SessionProvider
 from di_unit_of_work.transactional_decorator import transactional
 
@@ -36,9 +39,9 @@ class NestedTransactionalServiceB:
 
 class NestedTransactionalServiceA:
     def __init__(
-            self,
-            session_provider: SessionProvider,
-            nested_service_b: NestedTransactionalServiceB,
+        self,
+        session_provider: SessionProvider,
+        nested_service_b: NestedTransactionalServiceB,
     ) -> None:
         self._session_provider = session_provider
         self._nested_service_b = nested_service_b
@@ -64,9 +67,9 @@ class RollbackNestedTransactionalServiceB:
 
 class RollbackNestedTransactionalServiceA:
     def __init__(
-            self,
-            session_provider: SessionProvider,
-            nested_service_b: RollbackNestedTransactionalServiceB,
+        self,
+        session_provider: SessionProvider,
+        nested_service_b: RollbackNestedTransactionalServiceB,
     ) -> None:
         self._session_provider = session_provider
         self._nested_service_b = nested_service_b
@@ -124,7 +127,9 @@ class TestSessionSmoke(unittest.TestCase):
 
         with self.session_factory() as session:
             row_count = session.scalar(select(func.count()).select_from(TestDocument))
-            document_name = session.get(TestDocument, 1).name
+            document = session.get(TestDocument, 1)
+            assert document is not None
+            document_name = document.name
         self.assertEqual(1, row_count)
         self.assertEqual("success-full-write", document_name)
 

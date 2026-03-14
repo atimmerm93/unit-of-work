@@ -4,7 +4,6 @@ from di_unit_of_work.session_cache import SessionCache
 
 
 class SessionProvider:
-
     def __init__(self, session_cache: SessionCache) -> None:
         self._session_cache = session_cache
 

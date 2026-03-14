@@ -1,10 +1,14 @@
 import unittest
+from typing import cast
 from unittest.mock import Mock
 
 from sqlalchemy.orm import Session
 
 from di_unit_of_work.session_aspect import SessionAspect
 from di_unit_of_work.session_cache import SessionCache
+from di_unit_of_work.session_factory.abstract_session_factory import (
+    AbstractSessionFactory,
+)
 
 
 class _SessionFactoryContext:
@@ -20,7 +24,7 @@ class _SessionFactoryContext:
         self.enter_count += 1
         return self.session
 
-    def __exit__(self, exc_type, exc, tb) -> None: # type: ignore
+    def __exit__(self, exc_type: object, exc: object, tb: object) -> None:
         self.exit_count += 1
 
 
@@ -30,7 +34,7 @@ class TestSessionAspect(unittest.TestCase):
         self.session = Mock(spec=Session)
         self.session_factory = _SessionFactoryContext(self.session)
         self.session_aspect = SessionAspect(
-            session_factory=self.session_factory,
+            session_factory=cast(AbstractSessionFactory, self.session_factory),
             session_cache=self.session_cache,
         )
 
@@ -74,7 +78,7 @@ class TestSessionAspect(unittest.TestCase):
 
         def inner_transaction() -> Session:
             current_session = self.session_cache.get_current_session()
-            self.assertIsNotNone(current_session)
+            assert current_session is not None
             observed_sessions.append(current_session)
             return current_session
 
@@ -82,7 +86,7 @@ class TestSessionAspect(unittest.TestCase):
 
         def outer_transaction() -> tuple[Session, Session]:
             current_session = self.session_cache.get_current_session()
-            self.assertIsNotNone(current_session)
+            assert current_session is not None
             observed_sessions.append(current_session)
             inner_session = wrapped_inner()
             return current_session, inner_session
