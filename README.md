@@ -31,8 +31,11 @@ In practice, that gives you a few useful guarantees:
 - an exception anywhere in the call chain rolls back the whole unit of work
 - data access code can stay focused on persistence logic rather than transaction plumbing
 
+The PyPI distribution name is `di-unit-of-work`, and the import package name is
+`di_unit_of_work`.
+
 In this repository, the transaction boundary is expressed with the `@transactional`
-decorator from [`src/unit_of_work/transactional_decorator.py`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/transactional_decorator.py).
+decorator from [`src/di_unit_of_work/transactional_decorator.py`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/transactional_decorator.py).
 The decorator delegates to `SessionAspect`, which is registered through `python-di-application`
 post-init wrapping.
 
@@ -62,28 +65,28 @@ That is the core behavior this project is trying to make easy and explicit.
 
 ## Project Structure
 
-- [`src/unit_of_work/session_aspect.py`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/session_aspect.py):
+- [`src/di_unit_of_work/session_aspect.py`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/session_aspect.py):
   transaction boundary implementation
-- [`src/unit_of_work/session_cache.py`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/session_cache.py):
+- [`src/di_unit_of_work/session_cache.py`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/session_cache.py):
   context-local storage for the active session
-- [`src/unit_of_work/session_provider.py`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/session_provider.py):
+- [`src/di_unit_of_work/session_provider.py`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/session_provider.py):
   runtime accessor used by DAOs and services
-- [`src/unit_of_work/base_dao.py`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/base_dao.py):
+- [`src/di_unit_of_work/base_dao.py`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/base_dao.py):
   convenience base class for persistence helpers
-- [`src/unit_of_work/session_factory/sqlite_session_factory.py`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/session_factory/sqlite_session_factory.py):
+- [`src/di_unit_of_work/session_factory/sqlite_session_factory.py`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/session_factory/sqlite_session_factory.py):
   SQLite-backed session factory used by the example and tests
 
 ## Example
 
-The example lives under [`src/unit_of_work/example`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/example).
+The example lives under [`src/di_unit_of_work/example`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/example).
 
 It contains:
 
-- [`orm_model.py`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/example/orm_model.py):
+- [`orm_model.py`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/example/orm_model.py):
   a simple `SourceDocument` SQLAlchemy model
-- [`source_document_data_operations.py`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/example/source_document_data_operations.py):
+- [`source_document_data_operations.py`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/example/source_document_data_operations.py):
   a small data operation class with a `@transactional` write method
-- [`main.py`](/Users/alti/PycharmProjects/UnitOfWork/src/unit_of_work/example/main.py):
+- [`main.py`](/Users/alti/PycharmProjects/UnitOfWork/src/di_unit_of_work/example/main.py):
   an example composition root using `DIContainer`
 
 The example flow is:
