@@ -1,0 +1,12 @@
+[project]
+name = "unit-of-work"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.12"
+dependencies = [
+    "python-di-application>=0.2.0",
+    "sqlalchemy>=2.0.48",
+]
+
+[tool.uv]
+package = true

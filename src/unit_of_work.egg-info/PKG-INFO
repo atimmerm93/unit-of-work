@@ -1,0 +1,7 @@
+Metadata-Version: 2.4
+Name: unit-of-work
+Version: 0.1.0
+Summary: Add your description here
+Requires-Python: >=3.12
+Requires-Dist: python-di-application>=0.2.0
+Requires-Dist: sqlalchemy>=2.0.48
