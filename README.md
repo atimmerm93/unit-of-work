@@ -166,3 +166,13 @@ decorator to implement a unit-of-work pattern around SQLAlchemy.
 The main point is not just to save boilerplate. It is to make transaction ownership clear:
 the outer business operation owns the session, nested calls participate in the same unit of
 work, and failures roll the whole thing back consistently.
+
+
+## Release
+
+To create a new release, run:
+```bash
+git tag v0.x.y
+git push origin v0.x.y
+gh release create v0.x.y --title "v0.x.y" --notes "Release notes"
+```

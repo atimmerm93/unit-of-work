@@ -1,6 +1,6 @@
 [project]
 name = "di-unit-of-work"
-version = "0.1.0"
+version = "0.0.1"
 description = "Add your description here"
 requires-python = ">=3.12"
 dependencies = [
@@ -16,4 +16,4 @@ requires = ["hatchling>=1.25.0"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/unit_of_work"]
+packages = ["src/di_unit_of_work"]
