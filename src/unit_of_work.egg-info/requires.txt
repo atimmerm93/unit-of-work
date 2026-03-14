@@ -1,2 +1,0 @@
-python-di-application>=0.2.0
-sqlalchemy>=2.0.48

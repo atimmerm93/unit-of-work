@@ -15,5 +15,12 @@ package = true
 requires = ["hatchling>=1.25.0"]
 build-backend = "hatchling.build"
 
+[dependency-groups]
+dev = [
+    "mypy>=1.19.1",
+    "pre-commit>=4.5.1",
+    "ty>=0.0.23",
+]
+
 [tool.hatch.build.targets.wheel]
 packages = ["src/di_unit_of_work"]
