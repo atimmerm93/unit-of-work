@@ -7,7 +7,7 @@ from unittest.mock import Mock
 
 from sqlalchemy.orm import Session
 
-from unit_of_work.session_cache import SessionCache
+from di_unit_of_work.session_cache import SessionCache
 
 _PROCESS_CACHE = SessionCache()
 

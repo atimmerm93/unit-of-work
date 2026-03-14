@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from unit_of_work.session_cache import SessionCache
+from di_unit_of_work.session_cache import SessionCache
 
 
 class SessionProvider:

@@ -2,8 +2,8 @@ from collections.abc import Callable
 from functools import wraps
 from typing import ParamSpec, TypeVar
 
-from unit_of_work.session_cache import SessionCache
-from unit_of_work.session_factory.abstract_session_factory import AbstractSessionFactory
+from di_unit_of_work.session_cache import SessionCache
+from di_unit_of_work.session_factory.abstract_session_factory import AbstractSessionFactory
 
 P = ParamSpec("P")
 R = TypeVar("R")

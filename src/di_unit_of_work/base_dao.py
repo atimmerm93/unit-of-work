@@ -1,6 +1,6 @@
 from sqlalchemy.orm import Session
 
-from unit_of_work.session_provider import SessionProvider
+from di_unit_of_work.session_provider import SessionProvider
 
 
 class BaseDao:

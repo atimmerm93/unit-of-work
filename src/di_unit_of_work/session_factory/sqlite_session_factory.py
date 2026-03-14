@@ -6,7 +6,7 @@ from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy.pool import StaticPool
 from sqlalchemy.sql.schema import MetaData
 
-from unit_of_work.session_factory.abstract_session_factory import AbstractSessionFactory
+from di_unit_of_work.session_factory.abstract_session_factory import AbstractSessionFactory
 
 
 @dataclass(frozen=True)

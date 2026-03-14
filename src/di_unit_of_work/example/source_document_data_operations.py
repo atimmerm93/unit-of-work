@@ -1,7 +1,7 @@
-from unit_of_work.base_dao import BaseDao
-from unit_of_work.example.orm_model import SourceDocument
-from unit_of_work.session_provider import SessionProvider
-from unit_of_work.transactional_decorator import transactional
+from di_unit_of_work.base_dao import BaseDao
+from di_unit_of_work.example.orm_model import SourceDocument
+from di_unit_of_work.session_provider import SessionProvider
+from di_unit_of_work.transactional_decorator import transactional
 
 
 class SourceDocumentDataOperations(BaseDao):

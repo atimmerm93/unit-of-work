@@ -3,8 +3,8 @@ from unittest.mock import Mock
 
 from sqlalchemy.orm import Session
 
-from unit_of_work.session_aspect import SessionAspect
-from unit_of_work.session_cache import SessionCache
+from di_unit_of_work.session_aspect import SessionAspect
+from di_unit_of_work.session_cache import SessionCache
 
 
 class _SessionFactoryContext:
@@ -20,7 +20,7 @@ class _SessionFactoryContext:
         self.enter_count += 1
         return self.session
 
-    def __exit__(self, exc_type, exc, tb) -> None:
+    def __exit__(self, exc_type, exc, tb) -> None: # type: ignore
         self.exit_count += 1
 
 

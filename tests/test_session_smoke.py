@@ -5,11 +5,11 @@ from python_di_application.di_container import DIContainer
 from sqlalchemy import String, func, select
 from sqlalchemy.orm import DeclarativeBase, Mapped, Session, mapped_column
 
-from unit_of_work.session_aspect import SessionAspect
-from unit_of_work.session_cache import SessionCache
-from unit_of_work.session_factory.sqlite_session_factory import SQLiteSessionFactory, SqlLiteConfig
-from unit_of_work.session_provider import SessionProvider
-from unit_of_work.transactional_decorator import transactional
+from di_unit_of_work.session_aspect import SessionAspect
+from di_unit_of_work.session_cache import SessionCache
+from di_unit_of_work.session_factory.sqlite_session_factory import SQLiteSessionFactory, SqlLiteConfig
+from di_unit_of_work.session_provider import SessionProvider
+from di_unit_of_work.transactional_decorator import transactional
 
 
 class TestBase(DeclarativeBase):

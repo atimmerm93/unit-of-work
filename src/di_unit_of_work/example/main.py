@@ -1,12 +1,12 @@
 from python_di_application.dependency import Dependency
 from python_di_application.di_container import DIContainer
 
-from unit_of_work.example.orm_model import Base, SourceDocument
-from unit_of_work.example.source_document_data_operations import SourceDocumentDataOperations
-from unit_of_work.session_aspect import SessionAspect
-from unit_of_work.session_cache import SessionCache
-from unit_of_work.session_factory.sqlite_session_factory import SQLiteSessionFactory, SqlLiteConfig
-from unit_of_work.session_provider import SessionProvider
+from di_unit_of_work.example.orm_model import Base, SourceDocument
+from di_unit_of_work.example.source_document_data_operations import SourceDocumentDataOperations
+from di_unit_of_work.session_aspect import SessionAspect
+from di_unit_of_work.session_cache import SessionCache
+from di_unit_of_work.session_factory.sqlite_session_factory import SQLiteSessionFactory, SqlLiteConfig
+from di_unit_of_work.session_provider import SessionProvider
 
 
 def main() -> None:
